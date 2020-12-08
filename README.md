@@ -27,10 +27,10 @@ exit;
 
 ```shell
 # 建立資料庫
-create database hybrid_cloud;
+CREATE DATABASE `hybrid_cloud` DEFAULT CHARACTER SET utf8;
 
 # 新增使用者帳號，並設定密碼
-create user 'localadmin'@'localhost' identified by 'P@ssw0rd';
+CREATE USER 'localadmin'@'localhost' identified by 'P@ssw0rd';
 
 # 設定 localadmin 這個帳號可以使用 hybrid_cloud 這個資料庫
 grant all on hybrid_cloud.* to 'localadmin'@'localhost';
@@ -43,13 +43,39 @@ grant all on hybrid_cloud.* to 'localadmin'@'localhost';
 use hybrid_cloud;
 
 # 建立資料表
-create table Persons (
-    PersonID int,
-    LastName varchar(255),
-    FirstName varchar(255),
-    Address varchar(255),
-    City varchar(255)
-);
+CREATE TABLE `AWS_Billing` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `InvoiceID` varchar(255) DEFAULT NULL,
+  `PayerAccountId` varchar(255) DEFAULT NULL,
+  `LinkedAccountId` varchar(255) DEFAULT NULL,
+  `RecordType` varchar(255) DEFAULT NULL,
+  `RecordID` varchar(255) DEFAULT NULL,
+  `BillingPeriodStartDate` varchar(255) DEFAULT NULL,
+  `BillingPeriodEndDate` varchar(255) DEFAULT NULL,
+  `InvoiceDate` varchar(255) DEFAULT NULL,
+  `PayerAccountName` varchar(255) DEFAULT NULL,
+  `LinkedAccountName` varchar(255) DEFAULT NULL,
+  `TaxationAddress` varchar(255) DEFAULT NULL,
+  `PayerPONumber` varchar(255) DEFAULT NULL,
+  `ProductCode` varchar(255) DEFAULT NULL,
+  `ProductName` varchar(255) DEFAULT NULL,
+  `SellerOfRecord` varchar(255) DEFAULT NULL,
+  `UsageType` varchar(255) DEFAULT NULL,
+  `Operation` varchar(255) DEFAULT NULL,
+  `RateId` varchar(255) DEFAULT NULL,
+  `ItemDescription` varchar(255) DEFAULT NULL,
+  `UsageStartDate` varchar(255) DEFAULT NULL,
+  `UsageEndDate` varchar(255) DEFAULT NULL,
+  `UsageQuantity` varchar(255) DEFAULT NULL,
+  `BlendedRate` varchar(255) DEFAULT NULL,
+  `CurrencyCode` varchar(255) DEFAULT NULL,
+  `CostBeforeTax` varchar(255) DEFAULT NULL,
+  `Credits` varchar(255) DEFAULT NULL,
+  `TaxAmount` varchar(255) DEFAULT NULL,
+  `TaxType` varchar(255) DEFAULT NULL,
+  `TotalCost` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # 列出資料表
 show tables;
